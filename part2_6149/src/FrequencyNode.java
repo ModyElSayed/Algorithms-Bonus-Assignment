@@ -37,5 +37,8 @@ public class FrequencyNode {
     public boolean isWordEmpty() {
         return this.nBytesWord.isEmpty();
     }
+    public boolean isLeaf(FrequencyNode root){
+        return root.left == null && root.right == null;
+    }
 }
 

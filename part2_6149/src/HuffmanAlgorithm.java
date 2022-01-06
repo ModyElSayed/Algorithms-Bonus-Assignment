@@ -7,7 +7,7 @@ public class HuffmanAlgorithm {
         // Test Huffman Compression.
         // Assuming the received input is HashMap due to its speed.
         HashMap<String, Integer> testData = new HashMap<>(10);
-        testData.put("A", 10);
+        //testData.put("A", 10);
         testData.put("B", 11);
         testData.put("C", 5);
         testData.put("D", 13);
@@ -15,8 +15,12 @@ public class HuffmanAlgorithm {
 
         Huffman huffman = new Huffman(testData);
         HashMap<String, String> compressedData = huffman.compressData();
+        StringBuilder sb = new StringBuilder();
+        //for(char c:)
 
+        //huffman.decompress(compressedData,-1,);
         for (Map.Entry<String, String> huffmanData : compressedData.entrySet()) {
+
             System.out.println(huffmanData.getKey() + ": " + huffmanData.getValue());
         }
 
