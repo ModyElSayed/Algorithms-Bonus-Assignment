@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Algorithms-Bonus-Assignment.iml" filepath="$PROJECT_DIR$/.idea/Algorithms-Bonus-Assignment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part1_6149/part1_6149.iml" filepath="$PROJECT_DIR$/part1_6149/part1_6149.iml" />
+      <module fileurl="file://$PROJECT_DIR$/part2_6149/part2_6149.iml" filepath="$PROJECT_DIR$/part2_6149/part2_6149.iml" />
+    </modules>
+  </component>
+</project>
