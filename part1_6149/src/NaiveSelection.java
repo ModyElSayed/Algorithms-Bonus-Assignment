@@ -4,27 +4,19 @@ import java.util.Random;
 // The 3rd method of the k-th smallest number.
 public class NaiveSelection {
     private final Random randomNumbers;
-    private int numOfElements;
-    private int[] numbers;
+    private final int numOfElements;
+    private final int[] numbers;
     private int minBound;
     private int maxBound;
 
-    public NaiveSelection(int numOfElements, int minBound, int maxBound) {
-        setNumOfElements(numOfElements);
+    public NaiveSelection(int minBound, int maxBound) {
         setLimits(minBound, maxBound);
 
         this.randomNumbers = new Random();
+        this.numOfElements = randomNumbers.nextInt(1, (int) Math.pow(10, 7));
         this.numbers = new int[this.numOfElements];
 
         setNumbers();
-    }
-
-    private void setNumOfElements(int numOfElements) {
-        if (numOfElements > 0) {
-            this.numOfElements = numOfElements;
-        } else {
-            throw new IllegalArgumentException("Illegal number of elements: " + numOfElements);
-        }
     }
 
     private void setLimits(int minBound, int maxBound) {
