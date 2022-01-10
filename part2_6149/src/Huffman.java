@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.HashMap;
@@ -15,9 +16,30 @@ public class Huffman {
             throw new IllegalArgumentException("There is no data: " + receivedData.size());
         }
     }
+    public void buildHashMap(String text){
+        if(text == null || text.length() == 0) return;
+        Map<Character, Integer> freq = new HashMap<>();
+        for (char c: text.toCharArray()) {
+            freq.put(c, freq.getOrDefault(c, 0) + 1);
+        }
+        PriorityQueue<FrequencyNode> pq;
+        pq = new PriorityQueue<>(Comparator.comparingInt(l -> l.freq));
+
+        insertDataIntoPriorityQueue(freq);
+
+
+        for (var entry: freq.entrySet()) {
+            pq.add(new FrequencyNode(entry.getKey(), entry.getValue()));
+        }
+
+    }
+
+   // public Huffman(String text){
+
+   // }
 
     private void insertDataIntoPriorityQueue(HashMap<String, Integer> data) {
-        for (Map.Entry<String, Integer> freqData : data.entrySet()) {
+        for (Map.Entry<Character, Integer> freqData : data.entrySet()) {
             FrequencyNode extractData = new FrequencyNode(freqData.getKey(), freqData.getValue());
             this.huffmanQueue.add(extractData);
         }
@@ -39,7 +61,7 @@ public class Huffman {
 
             assert firstMinFreq != null && secondMinFreq != null;
             int newFrequency = firstMinFreq.getFrequency() + secondMinFreq.getFrequency();
-            FrequencyNode totalFreq = new FrequencyNode("", newFrequency, firstMinFreq, secondMinFreq);
+            FrequencyNode totalFreq = new FrequencyNode(null, newFrequency, firstMinFreq, secondMinFreq);
             huffmanQueue.add(totalFreq);
         }
     }

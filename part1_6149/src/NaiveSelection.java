@@ -7,7 +7,7 @@ public class NaiveSelection {
     private final int numOfElements;
     private final int[] numbers;
     private int minBound;
-    private int maxBound;
+    private int maxBound;//rand num%10^7
 
     public NaiveSelection(int minBound, int maxBound) {
         setLimits(minBound, maxBound);

@@ -13,6 +13,7 @@ public class HuffmanAlgorithm {
         testData.put("C", 5);
         testData.put("D", 13);
         testData.put("E", 20);
+        String text = "blah";
 
         Huffman huffman = new Huffman(testData);
         HashMap<String, String> compressedData = huffman.compressData();
