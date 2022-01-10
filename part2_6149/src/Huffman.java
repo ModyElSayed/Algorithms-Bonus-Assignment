@@ -1,7 +1,6 @@
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.HashMap;
 
 public class Huffman {
     private final PriorityQueue<FrequencyNode> huffmanQueue;
@@ -16,30 +15,30 @@ public class Huffman {
             throw new IllegalArgumentException("There is no data: " + receivedData.size());
         }
     }
-    public void buildHashMap(String text){
-        if(text == null || text.length() == 0) return;
-        Map<Character, Integer> freq = new HashMap<>();
-        for (char c: text.toCharArray()) {
-            freq.put(c, freq.getOrDefault(c, 0) + 1);
-        }
-        PriorityQueue<FrequencyNode> pq;
-        pq = new PriorityQueue<>(Comparator.comparingInt(l -> l.freq));
-
-        insertDataIntoPriorityQueue(freq);
-
-
-        for (var entry: freq.entrySet()) {
-            pq.add(new FrequencyNode(entry.getKey(), entry.getValue()));
-        }
-
-    }
+//    public void buildHashMap(String text){
+//        if(text == null || text.length() == 0) return;
+//        Map<Character, Integer> freq = new HashMap<>();
+//        for (char c: text.toCharArray()) {
+//            freq.put(c, freq.getOrDefault(c, 0) + 1);
+//        }
+//        PriorityQueue<FrequencyNode> pq;
+//        pq = new PriorityQueue<>(Comparator.comparingInt(l -> l.freq));
+//
+//        insertDataIntoPriorityQueue(freq);
+//
+//
+//        for (var entry: freq.entrySet()) {
+//            pq.add(new FrequencyNode(entry.getKey(), entry.getValue()));
+//        }
+//
+//    }
 
    // public Huffman(String text){
 
    // }
 
     private void insertDataIntoPriorityQueue(HashMap<String, Integer> data) {
-        for (Map.Entry<Character, Integer> freqData : data.entrySet()) {
+        for (Map.Entry<String, Integer> freqData : data.entrySet()) {
             FrequencyNode extractData = new FrequencyNode(freqData.getKey(), freqData.getValue());
             this.huffmanQueue.add(extractData);
         }
@@ -83,5 +82,24 @@ public class Huffman {
     private boolean nullChildren(FrequencyNode root) {
         return (root.left == null && root.right == null);
     }
+
+//    public int decompress(FrequencyNode root, int index, StringBuilder sb) {
+//        if (root == null) {
+//            return index;
+//        } else if (root.isLeaf(root)) {
+//            System.out.println(root.getnBytesWord());
+//            return index;
+//        } else {
+//            ++index;
+//            if (sb.charAt(index) == '0') {
+//                root = root.left;
+//            } else {
+//                root = root.right;
+//            }
+//
+//            index = this.decompress(root, index, sb);
+//            return index;
+//        }
+//    }
 
 }

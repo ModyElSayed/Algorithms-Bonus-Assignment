@@ -1,21 +1,21 @@
 public class FrequencyNode {
     public int freq;
     private int frequency;
-    private Character nBytesWord;
+    private String nBytesWord;
     public FrequencyNode left, right;
 
-    public FrequencyNode(Character nBytesWord, int frequency, FrequencyNode left, FrequencyNode right) {
+    public FrequencyNode(String nBytesWord, int frequency, FrequencyNode left, FrequencyNode right) {
         setnBytesWord(nBytesWord);
         setFrequency(frequency);
         this.left = left;
         this.right = right;
     }
 
-    public FrequencyNode(Character nBytesWord, int frequency) {
+    public FrequencyNode(String nBytesWord, int frequency) {
         this(nBytesWord, frequency, null, null);
     }
 
-    public void setnBytesWord(Character nBytesWord) {
+    public void setnBytesWord(String nBytesWord) {
         this.nBytesWord = nBytesWord;
     }
 
